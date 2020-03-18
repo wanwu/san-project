@@ -18,13 +18,17 @@ const resolve = pathname => path.resolve(__dirname, pathname);
 const outputDir = 'output';
 const isProduction = process.env.NODE_ENV === 'production';
 
-const plugins = [{id:'middleware1', apply(api){
-    api.addDevServerMiddleware(()=> require('@baidu/hulk-mock-server')({
+const plugins = [
+    {
+        id:'middleware1',
+        apply(api){
+            api.middleware(()=> require('@baidu/hulk-mock-server')({
                     contentBase: path.join(__dirname, './' + outputDir + '/'),
                     rootDir: path.join(__dirname, './mock'),
                     processors: [`smarty?router=/template/*&baseDir=${path.join(__dirname, `./${outputDir}/template`)}&dataDir=${path.join(__dirname, './mock/_data_')}`] // eslint-disable-line
                 }))
-}}]
+        }
+}]
 
 module.exports = {
     assetsDir:isProduction?STATIC_PRO:'static',
@@ -78,7 +82,7 @@ module.exports = {
             index: {
                 entry: './src/pages/index/index.js',
                 template: './pages.template.ejs',
-                filename: 'index/index.html'
+                filename: 'index.html'
             }
         {{/if_eq}}
     },
@@ -108,7 +112,7 @@ module.exports = {
     plugins: [
         {id:'middleware1',
         apply(api) {
-            api.addDevServerMiddleware(()=> require('@baidu/hulk-mock-server')({
+            api.middleware(()=> require('@baidu/hulk-mock-server')({
                             contentBase: path.join(__dirname, './' + outputDir + '/'),
                             rootDir: path.join(__dirname, './mock'),
                             processors: [`smarty?router=/template/*&baseDir=${path.join(__dirname, `./${outputDir}/template`)}&dataDir=${path.join(__dirname, './mock/_data_')}`] // eslint-disable-line
