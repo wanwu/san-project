@@ -22,7 +22,7 @@ const plugins = [
     {
         id:'middleware1',
         apply(api){
-            api.middleware(()=> require('@baidu/hulk-mock-server')({
+            api.middleware(()=> require('hulk-mock-server')({
                     contentBase: path.join(__dirname, './' + outputDir + '/'),
                     rootDir: path.join(__dirname, './mock'),
                     processors: [`smarty?router=/template/*&baseDir=${path.join(__dirname, `./${outputDir}/template`)}&dataDir=${path.join(__dirname, './mock/_data_')}`] // eslint-disable-line
@@ -86,7 +86,7 @@ module.exports = {
             }
         {{/if_eq}}
     },
-    transpileDependencies:['@baidu/nano'],
+    // transpileDependencies:['@baidu/nano'],
     css: {
         sourceMap: isProduction,
         cssPreprocessor: '{{cssPreprocessor}}'
@@ -112,7 +112,7 @@ module.exports = {
     plugins: [
         {id:'middleware1',
         apply(api) {
-            api.middleware(()=> require('@baidu/hulk-mock-server')({
+            api.middleware(()=> require('hulk-mock-server')({
                             contentBase: path.join(__dirname, './' + outputDir + '/'),
                             rootDir: path.join(__dirname, './mock'),
                             processors: [`smarty?router=/template/*&baseDir=${path.join(__dirname, `./${outputDir}/template`)}&dataDir=${path.join(__dirname, './mock/_data_')}`] // eslint-disable-line

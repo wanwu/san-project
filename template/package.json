@@ -18,11 +18,11 @@
   "license": "MIT",
   "devDependencies": {
     {{#if_eq tplEngine "smarty"}}
-    "@baidu/hulk-mock-server": "^0.0.2",
+    "hulk-mock-server": "^0.0.6",
     {{/if_eq}}
     "cross-env": "^5.2.0",
     "fecs": "^1.6.2",
-    "@baidu/san-cli": "^0.0.1-alpha.11"
+    "san-cli": "^0.0.1"
   },
   "dependencies": {
     "flyio": "^0.6.2",

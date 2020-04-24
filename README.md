@@ -5,12 +5,12 @@
 ## 安装
 
 ```bash
-# 没有安装 hulk 需要安装
-npm i -g @baidu/san-cli --registry http://registry.npm.baidu-int.com
+# 没有安装 san-cli 需要安装
+npm i -g san-cli
 san init ksky521/san-project my-project-folder
 ```
 
-**PS: san-cli node 版本需要>=8.9**
+**PS: san-cli node 版本需要>=8.16**
 
 ## meta.js 是模板创建 prompt 交互问题
 
