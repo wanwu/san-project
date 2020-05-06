@@ -3,6 +3,7 @@
 
 > 这是一个 San 的多页面脚手架产生的项目，适合多页面项目，支持 Smarty 和静态 HTML 做 layout 框架。
 > PS：webapp 是分为框架页面和接口的，**layout 框架** 指 webapp 的承接框架的 HTML 页面，比如 Smarty 输出框架
+
 ## Build Setup
 
 ``` bash
@@ -34,7 +35,8 @@ yarn build
 * 统一管理业务逻辑：方便 Node 逻辑调用？但是降低内聚性
 
 ## 最佳实践&解决方案
-> [本地实现 Mock Server](http://icode.baidu.com/repos/baidu/hulk/mock-server/tree/master) 两种
+> [本地实现 Mock Server](https://www.npmjs.com/package/hulk-mock-server) 两种
+
 ### Mock Server
 Mock Server 实现涉及到代码和说明
 ```
@@ -125,10 +127,7 @@ h2 {
 ├── package.json
 ├── pages.template.ejs
 ├── postcss.config.js
-├── webpack.config.analyzer.js
-├── webpack.config.base.js
-├── webpack.config.dev.js
-└── webpack.config.js
+└── san.config.js
 ```
 #### pages
 ```
