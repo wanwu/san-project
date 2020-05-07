@@ -9,7 +9,7 @@
 <template>
     <div id="hello-demo">
         <hello />
-        <h2>{{text}}</h2>
+        <h2>\{{text}}</h2>
     </div>
 </template>
 <style lang="less">
