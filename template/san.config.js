@@ -48,20 +48,20 @@ module.exports = {
             demoStore: {
                 entry: './src/pages/demo-store/index.js',
                 template: './template/demo-store/index.tpl',
-                filename: 'demo-store/index.tpl'
+                filename: 'template/demo-store/index.tpl'
             },
             {{/if_eq}}
             {{#if_eq demoType "normal"}}
             demo: {
                 entry: './src/pages/demo/index.js',
                 template: './template/demo/index.tpl',
-                filename: 'demo/index.tpl'
+                filename: 'template/demo/index.tpl'
             },
             {{/if_eq}}
             index: {
                 entry: './src/pages/index/index.js',
                 template: './template/index/index.tpl',
-                filename: 'index/index.tpl'
+                filename: 'template/index/index.tpl'
             }
         {{/if_eq}}
         {{#if_eq tplEngine "html"}}
@@ -98,13 +98,6 @@ module.exports = {
                 test: /[\\/]node_modules(?!\/@baidu)[\\/]/,
                 // minChunks: 1,
                 priority: -10
-            },
-            common: {
-                name: 'common',
-                test: /([\/]src\/components(-open)?|[\\/]node_modules\/@baidu\/nano)/,
-                priority: -20,
-                minChunks: 1,
-                chunks: 'initial'
             }
         }
     },
