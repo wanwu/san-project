@@ -144,16 +144,16 @@ pages
 ```
 
 ### 页面接口使用
-使用 [fly.js](https://github.com/wendux/fly/)，在  `pages/xx/services` 文件夹下开发接口请求，例如：
+使用 [axios](https://www.npmjs.com/package/axios)，在  `pages/xx/services` 文件夹下开发接口请求，例如：
 
 ```js
-import fly from 'flyio';
+import {get, post} from 'axios';
 export default {
     getData() {
-        return fly.get('/api/getData');
+        return get('/api/getData');
     },
     publish(data) {
-        return fly.post('/api/publish', data);
+        return post('/api/publish', data);
     }
 }
 ```
