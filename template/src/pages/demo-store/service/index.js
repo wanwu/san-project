@@ -2,7 +2,7 @@
  * @file services/index.js
  * @author {{author}}
  */
-import fly from 'flyio';
+import axios from 'axios';
 
-export const getData = () => fly.get('/api/getData');
-export const publish = data => fly.post('/api/publish', data);
+export const getData = () => axios.get('/api/getData');
+export const publish = data => axios.post('/api/publish', data);
