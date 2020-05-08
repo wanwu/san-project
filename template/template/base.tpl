@@ -2,11 +2,14 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1.0 user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1.0, user-scalable=no">
     <title>{%block name="title"%}百度{%/block%}</title>
     <meta name="screen-orientation" content="portrait">
     <meta name="x5-orientation" content="portrait">
-    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="date=no">
+    <meta name="format-detection" content="address=no">
+    <meta name="format-detection" content="email=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="dns-prefetch" href="//b.bdstatic.com">
     <link rel="dns-prefetch" href="//s.bdstatic.com">
