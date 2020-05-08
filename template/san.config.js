@@ -18,24 +18,16 @@ const resolve = pathname => path.resolve(__dirname, pathname);
 const outputDir = 'output';
 const isProduction = process.env.NODE_ENV === 'production';
 
-const plugins = [
-    {
-        id:'middleware1',
-        apply(api){
-            api.middleware(()=> require('hulk-mock-server')({
-                    contentBase: path.join(__dirname, './' + outputDir + '/'),
-                    rootDir: path.join(__dirname, './mock'),
-                    processors: [`smarty?router=/template/*&baseDir=${path.join(__dirname, `./${outputDir}/template`)}&dataDir=${path.join(__dirname, './mock/_data_')}`] // eslint-disable-line
-                }))
-        }
-}]
 
 module.exports = {
     assetsDir:isProduction?STATIC_PRO:'static',
     publicPath: isProduction?CDN:'/',
     outputDir,
+    // 文件名是否 hash
     filenameHashing:isProduction,
     {{#if_eq tplEngine "smarty"}}
+    // 这里实际是 webpack copy plugin
+    // 多路径可以使用数组
     copy: {
         from: 'template',
         to: 'template'
@@ -43,6 +35,7 @@ module.exports = {
     {{/if_eq}}
     // 这是多页面配置
     pages: {
+        // 这里是多页打包配置
         {{#if_eq tplEngine "smarty"}}
             {{#if_eq demoType "store"}}
             demoStore: {
@@ -61,6 +54,10 @@ module.exports = {
             index: {
                 entry: './src/pages/index/index.js',
                 template: './template/index/index.tpl',
+                // 访问路径 localhost:{port}/template/index/index.tpl
+                // 这里 {output}/template 目录会被 hulk-mock-server 接管
+                // 其他路径不会走 smarty 渲染，所以访问 tpl 文件会出现下载文件
+                // 更换router路径，参考 hulk-mock-server 配置
                 filename: 'template/index/index.tpl'
             }
         {{/if_eq}}
@@ -86,12 +83,18 @@ module.exports = {
             }
         {{/if_eq}}
     },
+    // 默认node_modules的依赖是不过 babel 的
+    // 如果依赖是 ESM 版本，要过 babel，请开启这里
     // transpileDependencies:['@baidu/nano'],
     css: {
         sourceMap: isProduction,
         cssPreprocessor: '{{cssPreprocessor}}'
     },
     splitChunks: {
+        // splitChunks 配置
+        // chunks name 如果要在 page 中使用：
+        // 如果拆的 chunk 不在 page 中，
+        // 那么需要添加 page 的 chunks:[${chunk-name}]
         cacheGroups:{
                 vendors: {
                 name: 'vendors',
@@ -103,8 +106,10 @@ module.exports = {
     },
     {{#if_eq tplEngine "smarty"}}
     plugins: [
-        {id:'middleware1',
+        {id:'hulk-mock-server',
         apply(api) {
+            // 这里使用接管了{output}/template 路径
+            // 详细 hulk mock server 配置说明：https://www.npmjs.com/package/hulk-mock-server
             api.middleware(()=> require('hulk-mock-server')({
                             contentBase: path.join(__dirname, './' + outputDir + '/'),
                             rootDir: path.join(__dirname, './mock'),
