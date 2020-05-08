@@ -22,7 +22,7 @@
     {{/if_eq}}
     "cross-env": "^5.2.0",
     "fecs": "^1.6.2",
-    "san-cli": "^0.0.1"
+    "san-cli": "alpha"
   },
   "dependencies": {
     "flyio": "^0.6.2",
