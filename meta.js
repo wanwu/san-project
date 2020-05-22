@@ -21,6 +21,7 @@ Start with ${chalk.bold('yarn/npm start')}`,
         }
     },
     filters: {
+        '_eslintrc.js': '!lint',
         'mock/**': 'tplEngine!=="smarty"',
         'template/**': 'tplEngine!=="smarty"',
         'template/demo-store/**': '!demo || (demo && demoType!=="store")',
@@ -61,6 +62,37 @@ Start with ${chalk.bold('yarn/npm start')}`,
                     short: 'HTML'
                 }
             ]
+        },
+        lint: {
+            type: 'confirm',
+            message: '是否安装 ESLint？'
+        },
+        lintConfig: {
+            when: 'lint',
+            type: 'list',
+            message: '选择 ESLint 配置',
+            choices: [
+                {
+                    name: '@ecomfe/eslint-config (https://github.com/ecomfe/eslint-config)',
+                    value: 'ecomfe',
+                    short: 'ecomfe'
+                },
+                {
+                    name: 'Standard (https://github.com/standard/standard)',
+                    value: 'standard',
+                    short: 'Standard'
+                },
+                {
+                    name: 'Airbnb (https://github.com/airbnb/javascript)',
+                    value: 'airbnb',
+                    short: 'Airbnb'
+                }
+            ]
+        },
+        lintHook: {
+            when: 'lint',
+            type: 'confirm',
+            message: '是否安装ESLint的 lint-staged？'
         },
         demo: {
             type: 'confirm',

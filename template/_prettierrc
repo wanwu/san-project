@@ -3,5 +3,13 @@
     "semi": true,
     "printWidth": 120,
     "tabWidth": 4,
-    "bracketSpacing": false
+    "useTab": false,
+    "bracketSpacing": false,
+    "arrowParens": "avoid",
+    "trailingComma": "none",
+    "overrides": [
+        {
+            "options": {"parser": "json"}
+        }
+    ]
 }
