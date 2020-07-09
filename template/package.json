@@ -51,7 +51,7 @@
     {{/if_eq}}
     {{/lint}}
     {{#if_eq tplEngine "smarty"}}
-    "hulk-mock-server": "^0.0.7",
+    "hulk-mock-server": "^0.0.8",
     {{/if_eq}}
     "@babel/core": "^7.8.6",
     "@babel/preset-env": "^7.8.6",
