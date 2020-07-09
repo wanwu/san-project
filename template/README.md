@@ -25,15 +25,6 @@ yarn build
 ```
 更多命令查看`package.json`的`scripts`字段。
 
-### 编译相关配置和说明
-
-
-## 约定大于配置
-
-* 统一端能力：为了方便适配手百版本和端能力 Mock，项目对端能力进行统一管理，统一放在`natives`
-* 统一接口请求：方便 node？可以在`webpack.resolve`中修改成对应的 node ral 版本，可以 mock。但是降低内聚性
-* 统一管理业务逻辑：方便 Node 逻辑调用？但是降低内聚性
-
 ## 最佳实践&解决方案
 > [本地实现 Mock Server](https://www.npmjs.com/package/hulk-mock-server) 两种
 
@@ -43,11 +34,7 @@ Mock Server 实现涉及到代码和说明
 ├── mock    mock 文件
 │   ├── _data_  这里是JSON 数据，跟template 目录结构一致，支持 Mockjs 语法（**.mock.json）
 │   └── index.js 配置文件
-├── scripts
-│   ├── dev.js
 ```
-
-`dev.js`中会启动`webpackDevServer`和`hotReload`功能，DevServer会将请求转发到 MockServer，MockServer （代码`middlewares/mocker.js`）包含两部分：`nodeServer`和`smartyServer`，node 遵循[`webpack-api-mocker`](https://github.com/jaywcjlove/webpack-api-mocker/)文档，`smartyServer`是 node 执行`php`命令行渲染 smarty 模板，然后将 stdout 作为输出。
 
 
 {{#if_eq tplEngine "smarty"}}
@@ -92,14 +79,8 @@ h2 {
 ```
 ## 目录说明
 ```
-├── config
-│   └── index.js
 ├── mock
 ├── scripts
-│   ├── plugins
-│   ├── build.js
-│   ├── dev.js
-│   └── utils.js
 ├── src
 │   ├── services       # 公共service请求
 │   ├── assets         # 公共资源
@@ -162,11 +143,12 @@ export default {
 
 ### dotFile 配置
 
-* ezcoderc：同步开发机配置，yaml 格式，**未来支持**
+* eslintrc：eslint
+* browserlistrc：browserlist配置
 * babelrc：babel 配置
 * editorconfig：不需要修改，设置了 tab 4个空格等，常见规范类的配置
 * npmrc：不需要修改，注册@baidu registry
-* prettierrc：不需要修改，格式化插件
+* prettierrc：根据需要修改，格式化插件
 * gitignore：git 忽略
 * fecsrc：fecs 格式化配置
 
