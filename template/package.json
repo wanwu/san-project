@@ -58,6 +58,18 @@
     "husky": "^4.2.3",
     "lint-staged": "^10.0.9",
     {{/lintHook}}
+    {{#if_eq cssPreprocessor "less"}}
+    "less": "^3.11.1",
+    "less-loader": "~5.0.0",
+    {{/if_eq}}
+    {{#if_eq cssPreprocessor "sass"}}
+    "sass": "^1.19.0",
+    "sass-loader": "^8.0.0",
+    {{/if_eq}}
+    {{#if_eq cssPreprocessor "stylus"}}
+    "stylus": "^0.54.8",
+    "stylus-loader": "^4.3.0",
+    {{/if_eq}}
     "babel-plugin-import": "^1.13.0",
     "cross-env": "^7.0.2",
     "fecs": "^1.6.2",

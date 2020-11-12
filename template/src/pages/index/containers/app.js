@@ -4,7 +4,15 @@
  */
 
 import {Component} from 'san';
+{{#if_eq cssPreprocessor "less"}}
 import './app.less';
+{{/if_eq}}
+{{#if_eq cssPreprocessor "sass"}}
+import './app.scss';
+{{/if_eq}}
+{{#if_eq cssPreprocessor "stylus"}}
+import './app.styl';
+{{/if_eq}}
 import logo from '@assets/logo.svg';
 export default class App extends Component {
 
