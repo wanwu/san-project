@@ -81,8 +81,10 @@
   },
   "dependencies": {
     "axios": "^0.19.0",
-    "san": "^3.9.0",
+    {{#if_eq demoType "store"}}
     "san-store": "1.1.0",
-    "san-update": "^2.1.0"
+    "san-update": "^2.1.0",
+    {{/if_eq}}
+    "san": "^3.9.0"
   }
 }
