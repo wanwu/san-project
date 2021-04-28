@@ -134,7 +134,7 @@ module.exports = {
         //     .use('url-loader').loader(require.resolve('url-loader'))
         //     .options({
         //         limit: 1000,
-        //         name: STATIC_PRO + '/img/[name].[hash:7].[ext]',
+        //         name: STATIC_PRO + '/img/[name].[contenthash:7].[ext]',
         //         publicPath: isProduction ? CDN : ''
         //     });
     },
