@@ -48,7 +48,7 @@ Start with ${chalk.bold('yarn/npm start')}`,
         author: {
             type: 'string',
             label: '作者',
-            default: '{{author}}'
+            default: '{{{author}}}'
         },
         tplEngine: {
             type: 'list',
