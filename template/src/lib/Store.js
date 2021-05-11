@@ -4,12 +4,10 @@
  */
 
 import {Store, connect as sanConnect} from 'san-store';
+
 const createConnector = sanConnect.createConnector;
 
-class newStore extends Store {
-    constructor(options) {
-        super(options);
-    }
+class NewStore extends Store {
     /**
      * 初始化数据
      * @param {Object} data 初始化数据
@@ -38,7 +36,7 @@ class newStore extends Store {
      */
     addActions(actions) {
         const addAction = this.addAction.bind(this);
-        if(typeof actions === 'object') {
+        if (typeof actions === 'object') {
             Object.keys(actions).forEach(name => {
                 addAction(name, actions[name]);
             });
@@ -56,7 +54,7 @@ class newStore extends Store {
  *
  * @type {Store}
  */
-export let store = new newStore({name: '__default__'});
+export let store = new NewStore({name: '__default__'});
 
 
 export {Store};

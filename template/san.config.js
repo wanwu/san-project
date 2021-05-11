@@ -6,7 +6,7 @@
  * COM_PAGE: 组件类型默认情况下, 组件路径是src/components; 值为src/pages中有效目录时, 路径为src/pages/$COM_PAGE/components
  * COM_NAME: 组件名称, 默认avatar
  */
- const path = require('path');
+const path = require('path');
 
 // 静态文件域名
 const CDN = 'https://s.bdstatic.com/';
@@ -26,7 +26,7 @@ module.exports = {
     publicPath: isProduction ? CDN : '/',
     outputDir,
     // 文件名是否 hash
-    filenameHashing:isProduction,
+    filenameHashing: isProduction,
     {{#if_eq tplEngine "smarty"}}
     // 这里实际是 webpack copy plugin
     // 多路径可以使用数组
@@ -40,49 +40,49 @@ module.exports = {
         // 这里是多页打包配置
         {{#if_eq tplEngine "smarty"}}
             {{#if_eq demoType "store"}}
-            demoStore: {
-                entry: './src/pages/demo-store/index.js',
-                template: './template/demo-store/index.tpl',
-                filename: 'template/demo-store/index.tpl'
-            },
+        demoStore: {
+            entry: './src/pages/demo-store/index.js',
+            template: './template/demo-store/index.tpl',
+            filename: 'template/demo-store/index.tpl'
+        },
             {{/if_eq}}
             {{#if_eq demoType "normal"}}
-            demo: {
-                entry: './src/pages/demo/index.js',
-                template: './template/demo/index.tpl',
-                filename: 'template/demo/index.tpl'
-            },
+        demo: {
+            entry: './src/pages/demo/index.js',
+            template: './template/demo/index.tpl',
+            filename: 'template/demo/index.tpl'
+        },
             {{/if_eq}}
-            index: {
-                entry: './src/pages/index/index.js',
-                template: './template/index/index.tpl',
-                // 访问路径 localhost:{port}/template/index/index.tpl
-                // 这里 {output}/template 目录会被 hulk-mock-server 接管
-                // 其他路径不会走 smarty 渲染，所以访问 tpl 文件会出现下载文件
-                // 更换router路径，参考 hulk-mock-server 配置
-                filename: 'template/index/index.tpl'
-            }
+        index: {
+            entry: './src/pages/index/index.js',
+            template: './template/index/index.tpl',
+            // 访问路径 localhost:{port}/template/index/index.tpl
+            // 这里 {output}/template 目录会被 hulk-mock-server 接管
+            // 其他路径不会走 smarty 渲染，所以访问 tpl 文件会出现下载文件
+            // 更换router路径，参考 hulk-mock-server 配置
+            filename: 'template/index/index.tpl'
+        }
         {{/if_eq}}
         {{#if_eq tplEngine "html"}}
             {{#if_eq demoType "store"}}
-            demoStore: {
-                entry: './src/pages/demo-store/index.js',
-                template: './pages.template.ejs',
-                filename: 'demo-store/index.html'
-            },
+        demoStore: {
+            entry: './src/pages/demo-store/index.js',
+            template: './pages.template.ejs',
+            filename: 'demo-store/index.html'
+        },
             {{/if_eq}}
             {{#if_eq demoType "normal"}}
-            demo: {
-                entry: './src/pages/demo/index.js',
-                template: './pages.template.ejs',
-                filename: 'demo/index.html'
-            },
+        demo: {
+            entry: './src/pages/demo/index.js',
+            template: './pages.template.ejs',
+            filename: 'demo/index.html'
+        },
             {{/if_eq}}
-            index: {
-                entry: './src/pages/index/index.js',
-                template: './pages.template.ejs',
-                filename: 'index.html'
-            }
+        index: {
+            entry: './src/pages/index/index.js',
+            template: './pages.template.ejs',
+            filename: 'index.html'
+        }
         {{/if_eq}}
     },
     // 默认node_modules的依赖是不过 babel 的
@@ -97,8 +97,8 @@ module.exports = {
         // chunks name 如果要在 page 中使用：
         // 如果拆的 chunk 不在 page 中，
         // 那么需要添加 page 的 chunks:[${chunk-name}]
-        cacheGroups:{
-                vendors: {
+        cacheGroups: {
+            vendors: {
                 name: 'vendors',
                 test: /[\\/]node_modules(?!\/@baidu)[\\/]/,
                 // minChunks: 1,
@@ -108,21 +108,23 @@ module.exports = {
     },
     {{#if_eq tplEngine "smarty"}}
     plugins: [
-        {id:'hulk-mock-server',
-        apply(api) {
-            // 这里使用接管了{output}/template 路径
-            // 详细 hulk mock server 配置说明：https://www.npmjs.com/package/hulk-mock-server
-            api.middleware(()=> require('hulk-mock-server')({
-                            contentBase: path.join(__dirname, './' + outputDir + '/'),
-                            rootDir: path.join(__dirname, './mock'),
-                            processors: [`smarty?router=/template/*&baseDir=${path.join(__dirname, `./${outputDir}/template`)}&dataDir=${path.join(__dirname, './mock/_data_')}`] // eslint-disable-line
-                        }))
-        }}
+        {
+            id: 'hulk-mock-server',
+            apply(api) {
+                // 这里使用接管了{output}/template 路径
+                // 详细 hulk mock server 配置说明：https://www.npmjs.com/package/hulk-mock-server
+                api.middleware(() => require('hulk-mock-server')({
+                    contentBase: path.join(__dirname, './' + outputDir + '/'),
+                    rootDir: path.join(__dirname, './mock'),
+                    processors: [`smarty?router=/template/*&baseDir=${path.join(__dirname, `./${outputDir}/template`)}&dataDir=${path.join(__dirname, './mock/_data_')}`] // eslint-disable-line max-len
+                }));
+            }
+        }
     ],
     {{/if_eq}}
-    alias:{
-        '@assets':resolve('src/assets'),
-        '@components':resolve('src/components'),
+    alias: {
+        '@assets': resolve('src/assets'),
+        '@components': resolve('src/components'),
         {{#if_eq demoType "store"}}
         '@store': resolve('src/lib/Store.js'),
         {{/if_eq}}

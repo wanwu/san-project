@@ -9,9 +9,6 @@ import Comment from '@/components/demo-comment';
 import {getData, publish} from '../service';
 
 export default class App extends Component {
-    constructor(opt) {
-        super(opt);
-    }
     static template = `
     <div class="wrapper">
         <ui-pub on-submit="submit" username="\{{userInfo.username}}" content="{=content=}"/>

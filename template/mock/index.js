@@ -22,14 +22,14 @@ const proxy = {
         username: '呜哈呜哈',
         sex: 6
     },
-    'POST /api/publish': (req, res)=>{
+    'POST /api/publish': (req, res) => {
         res.json({
-            errno:0,
+            errno: 0,
             data: {
                 username: req.body.username,
                 content: req.body.content
             }
-        })
+        });
     },
     'GET /api/getData': {
         errno: 0,
