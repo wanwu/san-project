@@ -123,8 +123,10 @@ module.exports = {
     alias:{
         '@assets':resolve('src/assets'),
         '@components':resolve('src/components'),
-        '@app': resolve('src/lib/App.js'),
-        '@store': resolve('src/lib/Store.js')
+        {{#if_eq demoType "store"}}
+        '@store': resolve('src/lib/Store.js'),
+        {{/if_eq}}
+        '@app': resolve('src/lib/App.js')
     },
     chainWebpack: config => {
         // 这里可以用来扩展 webpack 的配置，使用的是 webpack-chain 语法
