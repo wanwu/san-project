@@ -20,9 +20,6 @@ import Publisher from '@/components/demo-publisher';
 import Comment from '@/components/demo-comment';
 
 export default class AppComponent extends Component {
-    constructor(opts) {
-        super(opts);
-    }
     static template = `
         <div class="wrapper">
             <ui-pub on-submit="submit" username="\{{username}}" content="{=content=}"/>

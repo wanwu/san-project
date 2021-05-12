@@ -10,7 +10,7 @@ module.exports = {
     {{/if_eq}}
     env: {
         browser: true,
-        node: true,
+        node: true
     },
     root: true,
     rules: {
@@ -26,12 +26,13 @@ module.exports = {
         'no-unused-vars': 2,
         // 没定义就用的就别用，全局的要用 写 eslint global
         'no-undef': 2,
-        'comma-dangle': ['error', 'never']
+        'comma-dangle': ['error', 'never'],
+        'import/no-unresolved': 0
     },
     settings: {
         'import/resolver': {
             node: {
-                extensions: ['.js', '.jsx'],
+                extensions: ['.js', '.jsx']
             }
         }
     }

@@ -1,14 +1,13 @@
 import './style/index.css';
 
 export default {
-    initData(){
+    initData() {
         return {
             content: ''
-        }
+        };
     },
     template: require('./index.html'),
-    submit(){
+    submit() {
         this.fire('submit', this.data.get('content'));
     }
-
-}
+};

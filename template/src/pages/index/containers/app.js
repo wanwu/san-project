@@ -14,22 +14,21 @@ import './app.scss';
 import './app.styl';
 {{/if_eq}}
 import logo from '@assets/logo.svg';
+
 export default class App extends Component {
 
     static template = `
-    <div class="main">
-        <img class="logo" src="\{\{logo}}"/>
-        <h1>\{\{title}}</h1>
-        <h2>Hello world, I am OK~</h2>
-    </div>
-
+        <div class="main">
+            <img class="logo" src="\{\{logo}}"/>
+            <h1>\{\{title}}</h1>
+            <h2>Hello world, I am OK~</h2>
+        </div>
     `;
 
-    initData(){
+    initData() {
         return {
             logo,
             title: 'San CLI'
-        }
+        };
     }
 }
-

@@ -2,7 +2,7 @@ import san from 'san';
 import Readme from '../README.md';
 
 export default san.defineComponent({
-    components:{
+    components: {
         readme: Readme
     },
     template: `
@@ -10,4 +10,4 @@ export default san.defineComponent({
             <readme/>
         </div>
     `
-})
+});
