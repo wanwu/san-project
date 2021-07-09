@@ -102,6 +102,7 @@ module.exports = {
                 name: 'vendors',
                 test: /[\\/]node_modules(?!\/@baidu)[\\/]/,
                 // minChunks: 1,
+                chunks: 'initial',
                 priority: -10
             }
         }
