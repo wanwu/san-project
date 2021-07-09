@@ -52,32 +52,28 @@
     {{#if_eq tplEngine "smarty"}}
     "hulk-mock-server": "^0.1.0",
     {{/if_eq}}
-    "@babel/core": "^7.8.6",
-    "@babel/preset-env": "^7.8.6",
     {{#lintHook}}
     "husky": "^4.2.3",
     "lint-staged": "^10.0.9",
     {{/lintHook}}
     {{#if_eq cssPreprocessor "less"}}
     "less": "^3.11.1",
-    "less-loader": "~5.0.0",
+    "less-loader": "^5.0.0",
     {{/if_eq}}
     {{#if_eq cssPreprocessor "sass"}}
     "sass": "^1.19.0",
-    "sass-loader": "^8.0.0",
+    "sass-loader": "^10.1.1",
     {{/if_eq}}
     {{#if_eq cssPreprocessor "stylus"}}
     "stylus": "^0.54.8",
-    "stylus-loader": "^4.3.0",
+    "stylus-loader": "^4.3.3",
     {{/if_eq}}
     "babel-plugin-import": "^1.13.0",
     "cross-env": "^7.0.2",
     "fecs": "^1.6.2",
     "postcss-import": "^11.0.0",
-    "postcss-loader": "^2.0.8",
-    "autoprefixer": "^9.7.5",
     "postcss-url": "^7.2.1",
-    "san-cli": "^3.0.0"
+    "san-cli": "^4.0.0"
   },
   "dependencies": {
     "axios": "^0.21.1",
