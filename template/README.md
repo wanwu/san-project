@@ -56,13 +56,6 @@ smarty支持的配置有：`baseDir=./template&bin=php&dataDir=mockDir/_mockdata
  使用 Smarty 模板，则通过`template`文件夹下面的 tpl 进行渲染，全部继承`base.tpl`模板，本地开发通过`localhost:port/template`访问
 {{/if_eq}}
 
-### vw & rem 切图
-原理详见：https://aotu.io/notes/2017/04/28/2017-4-28-CSS-viewport-units/index.html
-
-项目实现通过 postcss+pr2rem 插件，默认使用的是宽度为`1242px`的设计稿为基准（在`postcss.config.js`中修改，统一使用html font-size=`5vw`）。
-
-css 书写不再使用`bsass`的`rem(*)`的方式，而是使用`pr`：
-
 ```css
 // input
 // pr 是真实设计稿测量出来的宽度
