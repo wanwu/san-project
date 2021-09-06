@@ -29,12 +29,12 @@
   "license": "MIT",
   "devDependencies": {
     {{#lint}}
+    "@babel/eslint-parser": "^7.15.4",
+    "@babel/eslint-plugin": "^7.14.5",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-prettier": "^3.1.2",
-    "babel-eslint": "^10.1.0",
     "prettier": "^2.0.5",
-    "eslint-plugin-babel":"^5.3.0",
-    "eslint": "^6.8.0",
+    "eslint": "^7.32.0",
     {{#if_eq lintConfig "standard"}}
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-promise": "^4.2.0",
@@ -45,7 +45,7 @@
     "eslint-config-airbnb-base": "^14.1.0",
     {{/if_eq}}
     {{#if_eq lintConfig "ecomfe"}}
-    "@ecomfe/eslint-config": "^3.2.0",
+    "@ecomfe/eslint-config": "^7.3.0",
     {{/if_eq}}
     {{/lint}}
     {{#if_eq tplEngine "smarty"}}
