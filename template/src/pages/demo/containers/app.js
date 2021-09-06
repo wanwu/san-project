@@ -3,10 +3,9 @@
  */
 import './app.css';
 import {Component} from 'san';
+import {getData, publish} from '../service';
 import Publisher from '@/components/demo-publisher';
 import Comment from '@/components/demo-comment';
-
-import {getData, publish} from '../service';
 
 export default class App extends Component {
     static template = `
