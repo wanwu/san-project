@@ -6,14 +6,18 @@
     padding-bottom: 10px;
     min-height: 50px;
 }
+
 .comment .comment-user {
     flex-shrink: 0;
 }
+
 .comment span {
     color: #00a3cf;
     font-style: italic;
 }
+
 .comment p {
     margin: 0;
-    /*text-indent: 2em;*/
+
+    /* text-indent: 2em; */
 }
