@@ -22,6 +22,7 @@ Start with ${chalk.bold('yarn/npm start')}`,
     },
     filters: {
         '_eslintrc.js': '!lint',
+        '_stylelintrc.json': '!(lintConfig==="ecomfe" && cssPreprocessor!=="stylus")',
         'mock/**': 'tplEngine!=="smarty"',
         'template/**': 'tplEngine!=="smarty"',
         'template/demo-store/**': '!demo || (demo && demoType!=="store")',

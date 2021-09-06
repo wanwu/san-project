@@ -15,6 +15,18 @@
 	],
 	{{#lintHook}}
 	"lint-staged": {
+			{{#if_eq lintConfig "ecomfe"}}
+			{{#if_eq cssPreprocessor "less"}}
+			"src/**/*.(css|less|scss)": [
+				"stylelint"
+			],
+			{{/if_eq}}
+			{{#if_eq cssPreprocessor "sass"}}
+			"src/**/*.(css|less|scss)": [
+				"stylelint"
+			],
+			{{/if_eq}}
+			{{/if_eq}}
 			"(scripts|src)/**/*.js": [
 				"eslint --fix"
 			]
@@ -46,6 +58,14 @@
 		{{/if_eq}}
 		{{#if_eq lintConfig "ecomfe"}}
 		"@ecomfe/eslint-config": "^7.3.0",
+		{{#if_eq cssPreprocessor "less"}}
+		"@ecomfe/stylelint-config": "^1.1.2",
+		"stylelint": "^13.13.1",
+		{{/if_eq}}
+		{{#if_eq cssPreprocessor "sass"}}
+		"@ecomfe/stylelint-config": "^1.1.2",
+		"stylelint": "^13.13.1",
+		{{/if_eq}}
 		{{/if_eq}}
 		{{/lint}}
 		{{#if_eq tplEngine "smarty"}}
