@@ -41,6 +41,7 @@
     display: flex;
     justify-content: flex-end;
 }
+
 .comment-field-button button {
     padding: 5px 10px;
     width: 80px;

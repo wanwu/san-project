@@ -10,7 +10,7 @@ npm i -g san-cli
 san init ksky521/san-project my-project-folder
 ```
 
-**PS: san-cli node 版本需要>=8.16**
+**PS: san-cli node 版本需要>=12.0**
 
 ## meta.js 是模板创建 prompt 交互问题
 
@@ -19,7 +19,7 @@ san init ksky521/san-project my-project-folder
 
 ## 相关 dot 文件
 
-模板中的`_xxx`文件会在安装之后，转换成`.xxx`文件，例如`template/_babelrc`经过`hulk init`之后，会变成`.babelrc`。
+模板中的`_xxx`文件会在安装之后，转换成`.xxx`文件，例如`template/_babelrc`经过`san init`之后，会变成`.babelrc`。
 
 -   ezcoderc：同步开发机配置，yaml 格式，**未来支持**
 -   babelrc：babel 配置
@@ -30,4 +30,4 @@ san init ksky521/san-project my-project-folder
 
 ## 更多说明
 
-访问项目[README](./src/README.md)
+访问项目[README](./template/README.md)

@@ -10,9 +10,9 @@ Start with ${chalk.bold('yarn/npm start')}`,
         );
     },
     helpers: {
-        /* eslint-disable fecs-camelcase */
+        /* eslint-disable */
         if_or(v1, v2, options) {
-            /* eslint-enable fecs-camelcase */
+            /* eslint-enable */
             if (v1 || v2) {
                 return options.fn(this);
             }
@@ -22,6 +22,7 @@ Start with ${chalk.bold('yarn/npm start')}`,
     },
     filters: {
         '_eslintrc.js': '!lint',
+        '_stylelintrc.json': '!(lintConfig==="ecomfe" && cssPreprocessor!=="stylus")',
         'mock/**': 'tplEngine!=="smarty"',
         'template/**': 'tplEngine!=="smarty"',
         'template/demo-store/**': '!demo || (demo && demoType!=="store")',
