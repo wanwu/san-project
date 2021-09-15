@@ -76,8 +76,8 @@
 		"lint-staged": "^10.0.9",
 		{{/lintHook}}
 		{{#if_eq cssPreprocessor "less"}}
-		"less": "^3.11.1",
-		"less-loader": "^5.0.0",
+		"less": "^4.1.1",
+    "less-loader": "^10.0.1",
 		{{/if_eq}}
 		{{#if_eq cssPreprocessor "sass"}}
 		"sass": "^1.19.0",
