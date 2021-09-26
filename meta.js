@@ -68,6 +68,10 @@ Start with ${chalk.bold('yarn/npm start')}`,
                 }
             ]
         },
+        ts: {
+            type: 'confirm',
+            message: '是否使用typescript？'
+        },
         lint: {
             type: 'confirm',
             message: '是否安装 ESLint？'

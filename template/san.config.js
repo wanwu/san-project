@@ -143,5 +143,17 @@ module.exports = {
         //         publicPath: isProduction ? CDN : ''
         //     });
     },
+    {{#ts}}
+    loaderOptions: {
+        babel: {
+            presets: [
+                '@babel/preset-typescript'
+            ],
+            plugins: [
+                '@babel/plugin-proposal-object-rest-spread'
+            ]
+        }
+    },
+    {{/ts}}
     sourceMap: isProduction
 };
