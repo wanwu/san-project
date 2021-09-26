@@ -4,9 +4,18 @@
         "paths": {
             "@/*": ["src/*"],
             {{#if_eq demoType "store"}}
+            {{#if ts}}
+            "@store": ["src/lib/Store.ts"],
+            {{else}}
             "@store": ["src/lib/Store.js"],
+            {{/if}}
             {{/if_eq}}
+            {{#if ts}}
+            "@app": ["src/lib/App.ts"]
+            {{else}}
             "@app": ["src/lib/App.js"]
+            {{/if}}
+            
         }
     }
 }

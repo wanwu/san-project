@@ -10,7 +10,11 @@
 		"build:modern": "cross-env NODE_ENV=production san build --config san.config.js --modern",
 		"inspect": "cross-env NODE_ENV=production san inspect --service-plugins --config ./san.config.js",
 		"lint": "npm run lint-eslint && npm run lint-stylelint",
-    	"lint-eslint": "eslint -c .eslintrc.js --ext .ts,.tsx,.js src",
+		{{#if ts}}
+        "lint-eslint": "eslint -c .eslintrc.js --ext .ts,.tsx,.js src",
+        {{else}}
+		"lint-eslint": "eslint -c .eslintrc.js --ext .js src",
+        {{/if}}
     	"lint-stylelint": "stylelint --config .stylelintrc.json src/**/*.{less,css,scss}"
 	},
 	"keywords": [
@@ -31,9 +35,15 @@
 			],
 			{{/if_eq}}
 			{{/if_eq}}
+			{{#if ts}}
 			"(scripts|src)/**/*.{ts,tsx,js}": [
 				"eslint --fix"
 			]
+			{{else}}
+			"(scripts|src)/**/*.js": [
+				"eslint --fix"
+			]
+			{{/if}}
 		},
     "husky": {
         "hooks": {
