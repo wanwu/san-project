@@ -32,7 +32,8 @@ Start with ${chalk.bold('yarn/npm start')}`,
         'src/pages/index/**/*.styl': 'cssPreprocessor!=="stylus"',
         'src/pages/demo-store/**': '!demo || (demo && demoType!=="store")',
         'src/pages/demo/**': '!demo || (demo && demoType!=="normal")',
-        'src/lib/Store.js': '!demo || (demo && demoType!=="store")'
+        'src/lib/Store.js': '!demo || (demo && demoType!=="store")',
+        'src/components/**': '!demo'
     },
     prompts: {
         name: {
