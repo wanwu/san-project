@@ -27,12 +27,17 @@ Start with ${chalk.bold('yarn/npm start')}`,
         'template/**': 'tplEngine!=="smarty"',
         'template/demo-store/**': '!demo || (demo && demoType!=="store")',
         'template/demo/**': '!demo || (demo && demoType!=="normal")',
+        'src/pages/**/*.ts': '!ts',
+        'src/pages/**/*.js': 'ts',
+        'src/lib/**/*.ts': '!ts',
+        'src/lib/**/*.js': 'ts',
         'src/pages/index/**/*.less': 'cssPreprocessor!=="less"',
         'src/pages/index/**/*.scss': 'cssPreprocessor!=="sass"',
         'src/pages/index/**/*.styl': 'cssPreprocessor!=="stylus"',
         'src/pages/demo-store/**': '!demo || (demo && demoType!=="store")',
         'src/pages/demo/**': '!demo || (demo && demoType!=="normal")',
-        'src/lib/Store.js': '!demo || (demo && demoType!=="store")'
+        'src/lib/Store.*': '!demo || (demo && demoType!=="store")',
+        'src/components/**': '!demo'
     },
     prompts: {
         name: {
@@ -67,6 +72,10 @@ Start with ${chalk.bold('yarn/npm start')}`,
                     short: 'HTML'
                 }
             ]
+        },
+        ts: {
+            type: 'confirm',
+            message: '是否使用typescript？'
         },
         lint: {
             type: 'confirm',

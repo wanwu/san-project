@@ -41,20 +41,32 @@ module.exports = {
         {{#if_eq tplEngine "smarty"}}
             {{#if_eq demoType "store"}}
         demoStore: {
+            {{#if ts}}
+            entry: './src/pages/demo-store/index.ts',
+            {{else}}
             entry: './src/pages/demo-store/index.js',
+            {{/if}}
             template: './template/demo-store/index.tpl',
             filename: 'template/demo-store/index.tpl'
         },
             {{/if_eq}}
             {{#if_eq demoType "normal"}}
         demo: {
+            {{#if ts}}
+            entry: './src/pages/demo/index.ts',
+            {{else}}
             entry: './src/pages/demo/index.js',
+            {{/if}}
             template: './template/demo/index.tpl',
             filename: 'template/demo/index.tpl'
         },
             {{/if_eq}}
         index: {
+            {{#if ts}}
+            entry: './src/pages/index/index.ts',
+            {{else}}
             entry: './src/pages/index/index.js',
+            {{/if}}
             template: './template/index/index.tpl',
             // 访问路径 localhost:{port}/template/index/index.tpl
             // 这里 {output}/template 目录会被 hulk-mock-server 接管
@@ -66,20 +78,32 @@ module.exports = {
         {{#if_eq tplEngine "html"}}
             {{#if_eq demoType "store"}}
         demoStore: {
+            {{#if ts}}
+            entry: './src/pages/demo-store/index.ts',
+            {{else}}
             entry: './src/pages/demo-store/index.js',
+            {{/if}}
             template: './pages.template.ejs',
             filename: 'demo-store/index.html'
         },
             {{/if_eq}}
             {{#if_eq demoType "normal"}}
         demo: {
+            {{#if ts}}
+            entry: './src/pages/demo/index.ts',
+            {{else}}
             entry: './src/pages/demo/index.js',
+            {{/if}}
             template: './pages.template.ejs',
             filename: 'demo/index.html'
         },
             {{/if_eq}}
         index: {
+            {{#if ts}}
+            entry: './src/pages/index/index.ts',
+            {{else}}
             entry: './src/pages/index/index.js',
+            {{/if}}
             template: './pages.template.ejs',
             filename: 'index.html'
         }
@@ -127,9 +151,17 @@ module.exports = {
         '@assets': resolve('src/assets'),
         '@components': resolve('src/components'),
         {{#if_eq demoType "store"}}
+        {{#if ts}}
+        '@store': resolve('src/lib/Store.ts'),
+        {{else}}
         '@store': resolve('src/lib/Store.js'),
+        {{/if}}
         {{/if_eq}}
+        {{#if ts}}
+        '@app': resolve('src/lib/App.ts')
+        {{else}}
         '@app': resolve('src/lib/App.js')
+        {{/if}}
     },
     chainWebpack: config => {
         // 这里可以用来扩展 webpack 的配置，使用的是 webpack-chain 语法
@@ -143,5 +175,17 @@ module.exports = {
         //         publicPath: isProduction ? CDN : ''
         //     });
     },
+    {{#ts}}
+    loaderOptions: {
+        babel: {
+            presets: [
+                '@babel/preset-typescript'
+            ],
+            plugins: [
+                '@babel/plugin-proposal-object-rest-spread'
+            ]
+        }
+    },
+    {{/ts}}
     sourceMap: isProduction
 };

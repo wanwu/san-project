@@ -6,13 +6,24 @@ module.exports = {
     extends: ['airbnb-base'],
     {{/if_eq}}
     {{#if_eq lintConfig "ecomfe"}}
-    extends: ['@ecomfe/eslint-config', '@ecomfe/eslint-config/import'],
+    extends: [
+        '@ecomfe/eslint-config',
+        '@ecomfe/eslint-config/import'{{#ts}},
+        'plugin:@typescript-eslint/recommended'
+        {{/ts}}
+    ],
     {{/if_eq}}
     env: {
         browser: true,
         node: true
     },
     root: true,
+    {{#ts}}
+    parser: '@typescript-eslint/parser',
+    plugins: [
+        '@typescript-eslint'
+    ],
+    {{/ts}}
     rules: {
         'import/unambiguous': 1,
         'import/no-commonjs': 1,
@@ -32,7 +43,7 @@ module.exports = {
     settings: {
         'import/resolver': {
             node: {
-                extensions: ['.js', '.jsx']
+                extensions: ['.js', '.jsx'{{#ts}}, '.ts', '.tsx'{{/ts}}]
             }
         }
     }

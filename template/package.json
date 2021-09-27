@@ -7,7 +7,15 @@
 		"start": "cross-env NODE_ENV=development san serve --config san.config.js",
 		"build": "cross-env NODE_ENV=production san build --config san.config.js",
 		"analyzer": "cross-env NODE_ENV=production san build --config san.config.js --analyze",
-		"build:modern": "cross-env NODE_ENV=production san build --config san.config.js --modern"
+		"build:modern": "cross-env NODE_ENV=production san build --config san.config.js --modern",
+		"inspect": "cross-env NODE_ENV=production san inspect --service-plugins --config ./san.config.js",
+		"lint": "npm run lint-eslint && npm run lint-stylelint",
+		{{#if ts}}
+        "lint-eslint": "eslint -c .eslintrc.js --ext .ts,.tsx,.js src",
+        {{else}}
+		"lint-eslint": "eslint -c .eslintrc.js --ext .js src",
+        {{/if}}
+    	"lint-stylelint": "stylelint --config .stylelintrc.json src/**/*.{less,css,scss}"
 	},
 	"keywords": [
 		"San",
@@ -27,9 +35,15 @@
 			],
 			{{/if_eq}}
 			{{/if_eq}}
+			{{#if ts}}
+			"(scripts|src)/**/*.{ts,tsx,js}": [
+				"eslint --fix"
+			]
+			{{else}}
 			"(scripts|src)/**/*.js": [
 				"eslint --fix"
 			]
+			{{/if}}
 		},
     "husky": {
         "hooks": {
@@ -43,6 +57,11 @@
 		{{#lint}}
 		"@babel/eslint-parser": "^7.15.4",
 		"@babel/eslint-plugin": "^7.14.5",
+		{{#ts}}
+		"@babel/preset-typescript": "^7.15.0",
+		"@typescript-eslint/eslint-plugin": "^4.31.2",
+		"@typescript-eslint/parser": "^4.31.2",
+		{{/ts}}
 		"eslint-plugin-import": "^2.20.2",
 		"eslint-plugin-prettier": "^3.1.2",
 		"prettier": "^2.0.5",
@@ -87,6 +106,9 @@
 		"stylus": "^0.54.8",
 		"stylus-loader": "^4.3.3",
 		{{/if_eq}}
+		{{#ts}}
+		"typescript": "^4.4.3",
+		{{/ts}}
 		"babel-plugin-import": "^1.13.0",
 		"cross-env": "^7.0.2",
 		"postcss-import": "^14.0.2",
