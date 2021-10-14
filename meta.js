@@ -62,14 +62,14 @@ Start with ${chalk.bold('yarn/npm start')}`,
             message: '选择模板引擎',
             choices: [
                 {
-                    title: 'Smarty（百度内部）',
-                    value: 'smarty',
-                    short: 'Smarty'
-                },
-                {
                     title: '纯 HTML',
                     value: 'html',
                     short: 'HTML'
+                },
+                {
+                    title: 'Smarty（百度内部）',
+                    value: 'smarty',
+                    short: 'Smarty'
                 }
             ]
         },
