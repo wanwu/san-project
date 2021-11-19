@@ -114,8 +114,18 @@ module.exports = {
     // transpileDependencies:['@baidu/nano'],
     css: {
         sourceMap: isProduction,
-        cssPreprocessor: '{{cssPreprocessor}}'
+        cssPreprocessor: '{{cssPreprocessor}}',
+        // 以下配置可强制所有css文件开启css modules
+        // loaderOptions: {
+        //     css: {
+        //         modules: {
+        //             auto: () => true
+        //         }
+        //     }
+        // }
     },
+    // 如使用.san单文件且默认全部css文件开启css modules，则需要开启esModule
+    // esModule: true,
     splitChunks: {
         // splitChunks 配置
         // chunks name 如果要在 page 中使用：
@@ -179,7 +189,7 @@ module.exports = {
     loaderOptions: {
         babel: {
             presets: [
-                '@babel/preset-typescript'
+                ['@babel/preset-typescript', {allExtensions: true}]
             ],
             plugins: [
                 '@babel/plugin-proposal-object-rest-spread'
