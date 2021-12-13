@@ -31,4 +31,4 @@ san init ksky521/san-project my-project-folder
 
 ## 更多说明
 
-访问项目[README](./src/README.md)
+访问项目[README](./README.md)
