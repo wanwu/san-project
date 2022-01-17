@@ -27,7 +27,6 @@ san init ksky521/san-project my-project-folder
 -   npmrc：不需要修改，注册@baidu registry
 -   prettierrc：不需要修改，格式化插件
 -   gitignore：git 忽略
--   fecsrc：fecs 格式化配置
 
 ## 更多说明
 

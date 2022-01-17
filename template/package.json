@@ -72,7 +72,6 @@
     {{/if_eq}}
     "babel-plugin-import": "^1.13.0",
     "cross-env": "^7.0.2",
-    "fecs": "^1.6.2",
     "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.8",
     "autoprefixer": "^9.7.5",
