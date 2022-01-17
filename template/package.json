@@ -76,7 +76,7 @@
     "postcss-loader": "^2.0.8",
     "autoprefixer": "^9.7.5",
     "postcss-url": "^7.2.1",
-    "san-cli": "^3.0.0"
+    "san-cli": "^4.0.0"
   },
   "dependencies": {
     "axios": "^0.21.1",
