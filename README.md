@@ -7,7 +7,7 @@
 ```bash
 # 没有安装 san-cli 需要安装
 npm i -g san-cli
-san init ksky521/san-project my-project-folder
+san init wanwu/san-project my-project-folder
 ```
 
 **PS: san-cli node 版本需要>=8.16**
